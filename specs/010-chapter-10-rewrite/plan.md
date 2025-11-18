@@ -1,571 +1,459 @@
 # Chapter 10 Rewrite Plan: Prompt Engineering for AI-Driven Development
 
-**Specification**: specs/010-chapter-10-rewrite/spec.md (APPROVED)
+**Specification**: specs/010-chapter-10-rewrite/spec.md v2.0 (Collaboration-Focused)
 **Created**: 2025-11-18
+**Revised**: 2025-11-18 (Alignment with approved spec v2.0)
 **Constitutional Version**: 6.0.1
 **Lesson Count**: 8 lessons (derived from concept density analysis)
 
 ---
 
+## CRITICAL CHANGE: Collaboration-Focused Approach
+
+**OLD APPROACH (v1.0)**: Specification writing as PM skill
+**NEW APPROACH (v2.0)**: Clear communication for AI collaboration
+
+**Rationale**: Part 3, A2-B1 students have NO programming experience yet. Must teach collaboration skills (Layer 2), NOT specification writing (Layer 4).
+
+---
+
 ## I. Pedagogical Architecture
+
+### Core Thesis
+
+**"Clear prompts get better AI responses. This chapter teaches you how to communicate your intent effectively so AI can help you accomplish tasks."**
+
+NOT teaching:
+- ❌ Specification writing for AI execution
+- ❌ Professional PM frameworks
+- ❌ Jake Heller's 60%→97% as primary framework (too advanced for A2)
+
+Teaching:
+- ✅ Communication skill: How do I ask AI clearly?
+- ✅ Collaboration skill: How do I work WITH AI iteratively?
+- ✅ Pattern recognition: When should I use similar prompts?
+- ✅ Validation skill: How do I check AI's work?
 
 ### Concept Density Analysis
 
-**Total Concepts**: 12 distinct prompt engineering concepts
+**Total Concepts**: 42 concepts across 8 lessons
 
 **Chunking Analysis**:
-1. **Foundation** (4 concepts): Prompts as specs, structure, verbs, clarity → 2 lessons
-2. **Application** (5 concepts): Iteration, Three Roles, convergence, QDD, refinement → 3 lessons
-3. **Integration** (2 concepts): Templates, usage criteria → 2 lessons
-4. **Mastery** (1 concept): Template orchestration → 1 lesson
+1. **Manual Foundation (L1-L3)**: 12 concepts → 3 lessons (4-5 concepts each, A2 tier)
+2. **AI Collaboration (L4-L6)**: 17 concepts → 3 lessons (5-6 concepts each, A2→B1)
+3. **Intelligence Design (L7-L8)**: 13 concepts → 2 lessons (7 concepts L7, integration L8, B1 tier)
 
 **Lesson Count Justification**: 8 lessons
-- NOT arbitrary (not forcing into 9-lesson pattern)
-- Derived from B1 cognitive load (7-10 concepts per lesson max)
-- Respects pedagogical phases (Foundation → Application → Integration → Mastery)
-- Matches 4-Stage framework (2 + 3 + 2 + 1 = 8)
+- Derived from A2 (5-7 concepts) → B1 (7-10 concepts) progression
+- NOT arbitrary (not forcing pattern)
+- Respects pedagogical phases (Manual → Collaboration → Intelligence)
 
-### Pedagogical Progression
+### Layer Progression (4-Layer Teaching Method)
 
-**Foundation Phase** (Lessons 1-2):
-- **Purpose**: Build mental models manually (Stage 1: NO AI)
-- **Cognitive load**: A2 tier (5-7 concepts per lesson)
-- **Teaching modality**: Specification-first (show WHAT prompts achieve BEFORE HOW)
-- **Outcome**: Students can analyze prompt quality WITHOUT AI assistance
+**LAYER 1: Manual Foundation (L1-L3)** — Build mental models WITHOUT AI
+- **Purpose**: Understand what makes prompts effective BEFORE using AI
+- **Cognitive Load**: A2 tier (5-7 concepts per lesson)
+- **Teaching Modality**: Comparison-based (vague vs. clear examples)
+- **Outcome**: Students can identify prompt quality manually
 
-**Application Phase** (Lessons 3-5):
-- **Purpose**: AI collaboration demonstrating Three Roles (Stage 2)
-- **Cognitive load**: A2→B1 transition (7 concepts per lesson)
-- **Teaching modality**: Socratic dialogue + hands-on iteration
-- **Outcome**: Students iterate prompts with AI showing Teacher/Student/Co-Worker dynamics
+**LAYER 2: AI Collaboration (L4-L6)** — Partner with AI using Three Roles
+- **Purpose**: Experience Teacher/Student/Co-Worker dynamics naturally
+- **Cognitive Load**: A2→B1 transition (5-7 concepts per lesson)
+- **Teaching Modality**: Experiential (hands-on iteration, reflection)
+- **Outcome**: Students collaborate with AI bidirectionally
 
-**Integration Phase** (Lessons 6-7):
-- **Purpose**: Create reusable intelligence (Stage 3)
-- **Cognitive load**: B1 tier (7-10 concepts per lesson)
-- **Teaching modality**: Design-focused (create prompt templates)
-- **Outcome**: Students build personal template library with usage criteria
-
-**Mastery Phase** (Lesson 8):
-- **Purpose**: Orchestrate via specification (Stage 4)
-- **Cognitive load**: B1 tier (synthesis, no new concepts)
-- **Teaching modality**: Specification-only capstone
-- **Outcome**: Professional-grade template library spec for peer use
+**LAYER 3: Intelligence Design (L7-L8)** — Create reusable patterns
+- **Purpose**: Recognize recurring tasks, create prompt templates
+- **Cognitive Load**: B1 tier (7-10 concepts per lesson)
+- **Teaching Modality**: Design-focused (template creation, decision guides)
+- **Outcome**: Personal prompt toolkit with usage criteria
 
 ### Teaching Modality Strategy (Anti-Convergence)
 
-**Chapter 9 Modality**: Direct teaching (markdown syntax tutorial)
+**Chapter 9 Modality**: Direct teaching (lecture-style markdown tutorial)
 
 **Chapter 10 Modality** (MUST vary):
-- **Specification-first**: Show WHAT prompts achieve BEFORE teaching syntax
-- **Socratic dialogue**: Questions guide students to discover patterns
-- **NOT**: Lecture-style explanations (avoid Chapter 9 pattern)
+- **Experiential collaboration**: Students practice with AI, discover patterns through iteration
+- **Comparison-based**: Show vague vs. clear prompts, analyze differences
+- **Reflection-driven**: "What worked? What didn't? Why?"
+- **NOT**: Lecture-style (avoid Chapter 9 pattern)
 
 **Per-Lesson Modality Assignment**:
-- **L1-2**: Specification-first (show excellent prompt results → analyze structure)
-- **L3-5**: Socratic + hands-on (questions guide iteration practice)
-- **L6-7**: Design-focused (students create templates)
-- **L8**: Specification-driven (write spec, NO implementation)
+- **L1-3**: Comparison + manual practice (analyze examples WITHOUT AI)
+- **L4-6**: Experiential + hands-on (practice WITH AI, reflect on process)
+- **L7-8**: Design + synthesis (create templates, build toolkit)
 
 ---
 
 ## II. Lesson-by-Lesson Breakdown
 
-### Lesson 1: Prompts as Specifications
+### Lesson 1: Why Prompting Matters
 
-**Stage**: 1 (Manual Foundation)
+**Layer**: 1 (Manual Foundation)
 **Duration**: 30 minutes
+**Proficiency**: A2
+**Concepts**: 3
+
+**Learning Objectives**:
+- LO-001: Distinguish vague from specific prompts
+- Understand: Vague prompts → Poor responses / Specific prompts → Better responses
+- Mental model: AI as collaborator, not magic oracle
+
+**Concept List**:
+1. Vague prompts produce poor AI responses (comparison)
+2. Specific prompts produce better AI responses (before/after)
+3. AI as collaborator requiring clear communication
+
+**Teaching Modality**: Comparison-based
+- Show: 5 prompt pairs (vague vs. specific)
+- Analyze: Why does specific version work better?
+- Practice: Improve 3 vague prompts WITHOUT AI (manual exercise)
+
+**Practice Vehicle**: Bash command explanations
+- Vague: "help with ls"
+- Specific: "explain ls -la output showing file permissions and sizes"
+
+**Prerequisites**:
+- Chapter 7: Bash basics
+- Chapter 9: Markdown syntax
+
+**Deliverable**: Improved prompts (manual exercise, documented in markdown)
+
+**Ending Section**: ONLY "Try With AI" (test improved prompts, compare results)
+
+---
+
+### Lesson 2: Basic Prompt Structure
+
+**Layer**: 1 (Manual Foundation)
+**Duration**: 35 minutes
+**Proficiency**: A2
+**Concepts**: 4
+
+**Learning Objectives**:
+- LO-002: Structure prompts using Task + Context + Format
+- Apply: Three-element pattern to Bash, Git, Markdown tasks
+
+**Concept List**:
+1. Task element: WHAT you want (verb-first: explain, create, debug, optimize)
+2. Context element: Background AI needs (project type, experience level)
+3. Format element: HOW you want answer (code block, bullet points, table)
+4. Three-element pattern combines all (Task + Context + Format)
+
+**Teaching Modality**: Comparison + structure analysis
+- Show: Unstructured vs. structured prompts
+- Identify: Task, Context, Format elements in examples
+- Practice: Write 3 structured prompts (manual, no AI)
+
+**Practice Vehicle**: Git explanations
+- Task: "Explain git rebase"
+- Context: "assuming I understand merge"
+- Format: "in 3 bullet points with examples"
+
+**Prerequisites**:
+- Lesson 1: Why prompts matter
+- Chapter 8: Git basics
+
+**Deliverable**: 3 structured prompts (Bash, Git, Markdown tasks)
+
+**Ending Section**: ONLY "Try With AI" (test prompts, evaluate responses)
+
+---
+
+### Lesson 3: Adding Examples and Constraints
+
+**Layer**: 1 (Manual Foundation)
+**Duration**: 40 minutes
 **Proficiency**: A2
 **Concepts**: 5
 
 **Learning Objectives**:
-- LO-001: Explain prompt engineering as "specification skill" using Jake Heller framework
-- Understand: Prompts define WHAT AI should produce (specifications, not commands)
+- LO-003: Enhance prompts with examples and constraints
+- Apply: Add 2 constraints + 1 example to basic prompts
 
 **Concept List**:
-1. Prompt engineering as specification writing (Jake Heller context)
-2. WHAT vs HOW thinking (intent before implementation)
-3. Specification-first principle (define success before prompting)
-4. 60% → 97% iteration framework (Heller's CoCounsel experience)
-5. Prompt quality = output quality (garbage in, garbage out)
+1. Examples show desired output style (show don't tell)
+2. Constraints limit scope (length, complexity, language level)
+3. Multiple examples improve consistency
+4. Constraints prevent unwanted behavior (security, complexity)
+5. Iterative refinement pattern (add constraints progressively)
 
-**Teaching Modality**: Specification-first
-- Show: Excellent prompt example → resulting code output → analyze structure
-- Show: Poor prompt example → problematic output → identify gaps
-- Students: Analyze prompt quality WITHOUT running AI
+**Teaching Modality**: Enhancement practice
+- Show: Basic vs. enhanced prompts
+- Identify: What constraints/examples add
+- Practice: Enhance L2 prompts with constraints/examples
 
-**Practice Vehicle**: Markdown analysis
-- Students read 5 prompt examples (markdown documents)
-- Manually identify which prompts are specifications vs vague requests
-- NO AI tools used (pure manual analysis)
-
-**Prerequisites from Earlier Chapters**:
-- Chapter 9: Markdown formatting basics
-- Chapter 4: Nine Pillars of AIDD (context for why prompts matter)
-
-**Deliverable**: Handwritten comparison chart (Specification Prompts vs Vague Prompts)
-
-**No "Try With AI" section** (Stage 1: manual only)
-
----
-
-### Lesson 2: Anatomy of Effective Prompts
-
-**Stage**: 1 (Manual Foundation)
-**Duration**: 35 minutes
-**Proficiency**: A2
-**Concepts**: 6
-
-**Learning Objectives**:
-- LO-002: Analyze prompt pairs (vague vs specific) and identify WHY specific prompts succeed
-- LO-003: Manually structure prompts using "Intent → Constraints → Success Criteria" pattern
-
-**Concept List**:
-1. Prompt structure components (Intent, Constraints, Success Criteria)
-2. Technical action verbs (Create, Debug, Refactor, Analyze, Optimize, Generate)
-3. Specificity principles (concrete vs abstract language)
-4. Constraint types (technical, scope, quality, format)
-5. Success criteria definition ("what good looks like" - Heller framework)
-6. Anti-pattern recognition (vagueness, ambiguity, missing context)
-
-**Teaching Modality**: Specification-first + Socratic
-- Present: Prompt anatomy diagram (Intent → Constraints → Success → Output)
-- Socratic questions:
-  - "What's missing from this prompt that causes poor output?"
-  - "Which constraint would prevent this failure mode?"
-  - "How would you define 'success' for this task?"
-
-**Practice Vehicle**: Bash command prompts (conceptual)
-- Students see prompts for Bash tasks (file operations, text processing)
-- Manually decompose prompts into Intent/Constraints/Success
-- Write improved versions on paper/markdown (NO AI execution)
+**Practice Vehicle**: Markdown documentation
+- Basic: "Create markdown doc for project README"
+- Enhanced: "Create markdown README similar to [example], max 200 words, beginner-friendly language, include installation and usage sections"
 
 **Prerequisites**:
-- Lesson 1: Prompts as specifications
-- Chapter 7: Bash basics (understand what commands do)
+- Lessons 1-2: Prompt foundations
+- Chapter 9: Markdown syntax
 
-**Deliverable**: 3 prompt rewrites (vague → specific) with structure annotations
+**Deliverable**: Enhanced prompts (basic prompt + examples/constraints added)
 
-**No "Try With AI" section** (Stage 1: manual only)
-
----
-
-### Lesson 3: Iterative Prompt Refinement (Three Roles Introduction)
-
-**Stage**: 2 (AI Collaboration)
-**Duration**: 45 minutes
-**Proficiency**: A2→B1 transition
-**Concepts**: 7
-
-**Learning Objectives**:
-- LO-004: Demonstrate THREE ROLES framework (AI as Teacher/Student/Co-Worker)
-- Apply: Iteration loop (initial prompt → AI feedback → refinement → convergence)
-
-**Concept List**:
-1. Three Roles framework overview (Teacher/Student/Co-Worker)
-2. AI as Teacher (suggests improvements you didn't know)
-3. AI as Student (learns your project constraints)
-4. AI as Co-Worker (iterative convergence)
-5. Iteration loop pattern (prompt → output → analyze → refine → repeat)
-6. Convergence criteria (when to stop iterating)
-7. Bidirectional learning (both human and AI improve understanding)
-
-**Teaching Modality**: Socratic + hands-on iteration
-
-**Practice Vehicle**: Git commit message generation
-- **Part 1: Initial Prompt** (student writes first attempt)
-- **Part 2: AI as Teacher** (AI suggests better structure/conventions)
-- **Part 3: AI as Student** (student teaches project-specific commit style)
-- **Part 4: Convergence** (iterate until commit message meets standards)
-
-**Prerequisites**:
-- Lessons 1-2: Prompt structure understanding
-- Chapter 8: Git basics (understand commits)
-
-**Deliverable**:
-- Iteration log (3-5 refinement cycles documented)
-- Final prompt that produces excellent commit messages
-
-**Three Roles Demonstration** (MANDATORY):
-- ✅ AI teaches: Student learns conventional commit format from AI
-- ✅ Student teaches: Student corrects AI to match team's style
-- ✅ Co-Worker: Multiple iterations converge on optimal prompt
-
-**Try With AI Section**:
-```markdown
-## Try With AI: Commit Message Refinement
-
-**Part 1: Initial Request**
-Ask Claude Code or Gemini CLI: "Write a commit message for my changes"
-
-**Part 2: Critical Evaluation**
-Review AI's response. Ask yourself:
-- Does this follow conventional commit format?
-- Does it capture WHY changes were made (not just WHAT)?
-- Is it specific enough for teammate review?
-
-**Part 3: Teach AI Your Standards**
-Tell AI: "Use conventional commits format. Include scope. Explain business value, not just technical changes."
-
-**Part 4: Iterate**
-Refine prompt until output matches your quality bar.
-
-**Part 5: Reflection**
-- What did AI teach you about commit messages?
-- What did you teach AI about your project?
-- How did the final version improve from iteration?
-```
+**Ending Section**: ONLY "Try With AI" (compare basic vs. enhanced results)
 
 ---
 
-### Lesson 4: Specification-First Prompting
+### Lesson 4: Iterative Refinement
 
-**Stage**: 2 (AI Collaboration)
+**Layer**: 2 (AI Collaboration)
 **Duration**: 40 minutes
-**Proficiency**: B1
-**Concepts**: 7
+**Proficiency**: A2→B1 transition
+**Concepts**: 5
 
 **Learning Objectives**:
-- LO-005: Write specification-first prompts (define WHAT before asking HOW)
-- Apply: Jake Heller's "define what good looks like" before prompting
+- LO-004: Demonstrate Three Roles in iteration (experienced, not labeled)
+- Apply: 3-iteration refinement loop (initial → refine → refine → final)
 
 **Concept List**:
-1. Specification-first principle (WHAT before HOW)
-2. Success criteria definition (measurable outcomes)
-3. Acceptance test thinking (how to validate output)
-4. Constraints before implementation (boundaries upfront)
-5. Non-goals clarification (what we're NOT building)
-6. Output format specification (structure requirements)
-7. Validation criteria (pass/fail thresholds)
+1. First prompt rarely perfect (iteration mindset)
+2. AI as Teacher: Suggests improvements you didn't know
+3. AI as Student: You teach AI your specific context
+4. AI as Co-Worker: Iteration produces better result than either alone
+5. Convergence loop: Human + AI converge on solution
 
-**Teaching Modality**: Specification-first + Socratic
+**Teaching Modality**: Experiential collaboration
+- Students: Start with initial prompt
+- AI: Responds (may be generic or miss context)
+- Students: Refine based on gaps
+- Iterate: Until output meets needs
+- Reflect: What improved through iteration?
 
-**Practice Vehicle**: Bash script specification
-- Students specify "file backup script" requirements BEFORE prompting
-- Define: What files, where to backup, error handling, success indicators
-- Write specification → THEN prompt AI → validate output against spec
+**Three Roles Experienced** (NOT labeled as framework):
+- Narrative shows AI suggesting patterns (Teacher role naturally)
+- Narrative shows student correcting AI (Student role naturally)
+- Narrative shows convergence through iteration (Co-Worker naturally)
+
+**Practice Vehicle**: Bash script debugging
+- Iteration 1: "Debug this script" → Generic response
+- Iteration 2: "Debug this script; it fails with 'permission denied' on line 5" → Specific fix
+- Iteration 3: "Explain WHY this permission issue happens" → Understanding
 
 **Prerequisites**:
-- Lesson 3: Three Roles framework
-- Chapter 7: Bash scripting basics
+- Lessons 1-3: Manual foundations
+- Chapter 7: Bash scripting
 
-**Deliverable**:
-- Specification document (markdown)
-- Prompt based on specification
-- Validation report (does output meet spec?)
+**Deliverable**: Iteration log (3 refinement cycles documented with reflection)
 
-**Three Roles Demonstration**:
-- ✅ AI teaches: Suggests validation criteria student forgot
-- ✅ Student teaches: Specifies project-specific constraints
-- ✅ Co-Worker: Spec + prompt converge through iteration
+**Jake Heller Reference**: Sidebar in lesson
+- "Expert Insight: Jake Heller (Casetext founder) spent weeks refining prompts from 60% → 97% accuracy through iteration. This lesson teaches that same iterative mindset."
+- NOT taught as framework to apply
 
-**Try With AI Section**: Active collaboration with specification refinement
+**Ending Section**: ONLY "Try With AI" (full iteration session with reflection prompts)
 
 ---
 
 ### Lesson 5: Question-Driven Development
 
-**Stage**: 2 (AI Collaboration)
-**Duration**: 40 minutes
-**Proficiency**: B1
-**Concepts**: 7
-
-**Learning Objectives**:
-- LO-006: Apply Question-Driven Development (prompt AI to ask clarifying questions)
-- Understand: Better inputs from AI questioning produce better outputs
-
-**Concept List**:
-1. Question-Driven Development (QDD) pattern
-2. Prompting AI to ask questions (meta-prompting)
-3. Clarifying question types (scope, constraints, preferences, edge cases)
-4. Answer quality (specific vs vague responses)
-5. Iterative questioning (follow-up questions)
-6. Requirement elicitation (AI helps discover what you need)
-7. Specification co-creation (AI + human converge on requirements)
-
-**Teaching Modality**: Socratic + hands-on
-
-**Practice Vehicle**: Documentation generation task
-- Instead of: "Write documentation for this Bash script"
-- Student prompts: "Ask me 10 clarifying questions before writing documentation"
-- AI asks: Audience level? Format? Sections needed? Examples required?
-- Student answers → AI generates tailored documentation
-
-**Prerequisites**:
-- Lesson 4: Specification-first thinking
-- Lessons 3: Three Roles framework
-
-**Deliverable**:
-- QDD session log (questions asked, answers given)
-- Final documentation output
-- Reflection: How questions improved output quality
-
-**Three Roles Demonstration**:
-- ✅ AI teaches: Asks questions student didn't think of
-- ✅ Student teaches: Provides project-specific answers
-- ✅ Co-Worker: Questions + answers converge on requirements
-
-**Try With AI Section**: QDD practice session with reflection prompts
-
----
-
-### Lesson 6: Creating Reusable Prompt Templates
-
-**Stage**: 3 (Intelligence Design)
+**Layer**: 2 (AI Collaboration)
 **Duration**: 45 minutes
 **Proficiency**: B1
-**Concepts**: 8
+**Concepts**: 6
 
 **Learning Objectives**:
-- LO-007: Create 3+ reusable prompt templates for common tasks
-- Design: Templates as 2-4 decision point skills
+- LO-005: Apply Question-Driven Development (prompt AI to ask questions first)
+- Understand: AI questions reveal assumptions and improve tailored solutions
 
 **Concept List**:
-1. Prompt templates concept (reusable patterns)
-2. Template structure (placeholders, variables, instructions)
-3. Decision points (what varies per use)
-4. Template categories (new feature, bug fix, refactoring, testing, documentation)
-5. Placeholder syntax (clear variable marking)
-6. Template documentation (when to use, how to customize)
-7. Template testing (validate with multiple scenarios)
-8. Template refinement (improve through use)
+1. AI can ask YOU questions before answering
+2. Questions reveal assumptions and gaps in your request
+3. Your answers provide context AI needs
+4. Question-driven produces tailored solutions (vs. generic)
+5. Comparison: Direct prompt vs. question-driven approach
+6. When to use: Complex tasks with multiple valid approaches
 
-**Teaching Modality**: Design-focused
+**Teaching Modality**: Experiential + comparison
+- Direct approach: "Explain git workflows" → Generic answer
+- QDD approach: "Before explaining git workflows, ask me 5 questions" → AI asks about team size, project type, release cadence → Tailored answer
+- Students: Compare results, reflect on difference
 
-**Practice Vehicle**: Common development tasks (Bash/Git/Markdown)
-- Template 1: Bug fix prompt template
-- Template 2: Refactoring prompt template
-- Template 3: Documentation prompt template
-
-**Template Structure Example**:
-```markdown
-# Bug Fix Prompt Template
-
-**INTENT**: Fix bug causing [SYMPTOM]
-
-**CONTEXT**:
-- File: [FILEPATH]
-- Error: [ERROR_MESSAGE]
-- Expected behavior: [EXPECTED]
-- Actual behavior: [ACTUAL]
-
-**CONSTRAINTS**:
-- MUST preserve existing functionality
-- MUST include error handling
-- MUST add test case preventing regression
-
-**SUCCESS CRITERIA**:
-- Bug no longer reproduces
-- Tests pass
-- No new bugs introduced
-```
+**Practice Vehicle**: Git workflow design
+- QDD prompt: "Before explaining git workflows, ask me 5 questions about my experience and project needs"
+- AI: Asks clarifying questions
+- Student: Answers thoughtfully
+- AI: Provides tailored explanation based on answers
 
 **Prerequisites**:
-- Lessons 1-5: All prompt engineering foundations
-- Understanding of development workflows
+- Lesson 4: Iterative refinement
+- Chapter 8: Git workflows
 
-**Deliverable**:
-- 3 prompt templates (markdown files)
-- Usage examples for each template
-- Personal template library (folder structure)
+**Deliverable**: QDD session log (questions asked, answers given, comparison with direct approach)
 
-**Intelligence Creation** (Stage 3):
-- Templates = reusable skills (2-4 decision points each)
-- Students customize for their projects
-- Templates accumulate across future development
-
-**Try With AI Section**: Test templates with AI, refine based on outputs
+**Ending Section**: ONLY "Try With AI" (QDD practice on complex task)
 
 ---
 
-### Lesson 7: Template Usage Criteria and Decision Frameworks
+### Lesson 6: Validating AI Outputs
 
-**Stage**: 3 (Intelligence Design)
+**Layer**: 2 (AI Collaboration)
 **Duration**: 40 minutes
+**Proficiency**: B1
+**Concepts**: 6
+
+**Learning Objectives**:
+- LO-006: Validate AI outputs using checklist (never trust blindly)
+- Apply: Read → Understand → Test → Question unfamiliar parts
+
+**Concept List**:
+1. Never trust AI blindly (validation mindset)
+2. Validation checklist: Read → Understand → Test → Question
+3. Red flags: Overly complex, missing error handling, unexplained "magic"
+4. Ask AI to explain unfamiliar parts (learning opportunity)
+5. Test outputs in safe environment before production use
+6. Iterate when validation fails (refine prompt, request fixes)
+
+**Teaching Modality**: Critical analysis + experiential
+- Present: AI-generated Bash script with issues
+- Students: Apply validation checklist
+- Identify: Red flags (hardcoded paths, no error handling)
+- Prompt: "Why is this path hardcoded? How can I make it configurable?"
+- AI: Explains and provides improved version
+
+**Practice Vehicle**: Bash script validation
+- AI generates backup script with hardcoded paths
+- Student identifies: Path hardcoded, no error handling, no user feedback
+- Student prompts: Explain issues, request improvements
+- Validate: Improved version meets criteria
+
+**Prerequisites**:
+- Lesson 4-5: Iteration and QDD
+- Chapter 7: Bash scripting
+
+**Deliverable**: Validation report (issues identified, prompts for fixes, improved output)
+
+**Ending Section**: ONLY "Try With AI" (validate and improve AI-generated solution)
+
+---
+
+### Lesson 7: Building Your Prompt Library
+
+**Layer**: 3 (Intelligence Design)
+**Duration**: 45 minutes
 **Proficiency**: B1
 **Concepts**: 7
 
 **Learning Objectives**:
-- LO-008: Document WHEN to use each template (decision framework, not just library)
-- Create: Usage criteria for template selection
+- LO-007: Create 3+ reusable prompt templates with placeholders
+- Design: Templates for recurring tasks (pattern recognition)
 
 **Concept List**:
-1. Decision frameworks (not just template lists)
-2. Task characterization (identify template fit)
-3. Selection criteria (matching task to template)
-4. Template comparison (when multiple templates could work)
-5. Template adaptation (customizing for edge cases)
-6. Anti-patterns (when NOT to use templates)
-7. Template composition (combining multiple templates)
+1. Recognize recurring tasks (pattern recognition)
+2. Extract reusable structure (template creation)
+3. Placeholders for variables (generalization: [VARIABLE])
+4. Usage notes for context (when to use this template)
+5. Template categories: Explain, Debug, Create, Optimize
+6. Version control for templates (iterate and improve)
+7. Test templates on new scenarios (validation)
 
-**Teaching Modality**: Design-focused + Socratic
+**Teaching Modality**: Design-focused
+- Identify: Tasks you do repeatedly (Bash debugging, Git commits, Markdown docs)
+- Extract: Common structure across instances
+- Create: Template with placeholders
+- Document: When to use, how to customize
+- Test: Apply template to new scenario
 
-**Practice Vehicle**: Create "Template Selection Guide"
-- Decision tree: Task characteristics → Template recommendation
-- Examples: "New feature" → which template? Why?
-- Edge cases: Task doesn't fit existing templates → what to do?
-
-**Decision Framework Structure**:
-```markdown
-# Template Selection Guide
-
-## Decision Tree
-
-**Question 1**: Is this creating something new or fixing existing?
-- New → Go to Q2
-- Fixing → Bug Fix Template
-
-**Question 2**: Does this require architectural design?
-- Yes → New Feature Template (complex)
-- No → Simple Implementation Template
-
-**Question 3**: Is this refactoring or optimizing?
-- Refactoring → Refactoring Template
-- Optimizing → Performance Template
-
-[Continue decision tree...]
-
-## Anti-Patterns (When NOT to use templates)
-
-- Task is trivial (1-line change) → Direct prompt
-- Task is completely novel → Custom prompt from scratch
-- Template assumptions don't match context → Adapt or create new
-```
+**Practice Vehicle**: Template creation for common tasks
+- **Git commit template**: "Write commit message for [FEATURE] that [ACTION], following [STYLE]"
+- **Bash debug template**: "Debug Bash script [FILENAME] failing with [ERROR] at [LINE]"
+- **Markdown doc template**: "Create markdown doc for [PROJECT] including [SECTIONS]"
 
 **Prerequisites**:
-- Lesson 6: Prompt templates created
-- All previous lessons (full understanding)
+- All Lessons 1-6: Full prompt engineering foundation
+- Experience with Bash, Git, Markdown (Chapters 7-9)
 
-**Deliverable**:
-- Template Selection Guide (markdown)
-- Usage examples with reasoning
-- Template library documentation
+**Deliverable**: 3 templates (markdown files with placeholders + usage notes)
 
-**Intelligence Creation** (Stage 3):
-- Decision framework = skill for template selection
-- Reusable across all future projects
-- Enables autonomous template usage
-
-**Try With AI Section**: Validate decision tree with AI, test edge cases
+**Ending Section**: ONLY "Try With AI" (test templates on new scenarios, refine based on results)
 
 ---
 
-### Lesson 8: Capstone - Prompt Template Library Specification
+### Lesson 8: Capstone - Your First Prompt Toolkit
 
-**Stage**: 4 (Spec-Driven Integration)
-**Duration**: 50 minutes
+**Layer**: 3 (Intelligence Design) + Capstone Integration
+**Duration**: 60 minutes
 **Proficiency**: B1
-**Concepts**: 0 new (synthesis only)
+**Concepts**: Integration (no new concepts)
 
 **Learning Objectives**:
-- LO-009: Write complete template library specification for peer use
-- Demonstrate: Professional-grade specification capability
+- LO-008: Build comprehensive prompt toolkit (5-7 templates + decision guide)
+- Demonstrate: Template selection criteria (WHEN to use each)
 
-**Concept List** (NO new concepts - synthesis):
-- Orchestrates: Templates from L6, Usage criteria from L7
-- Applies: Specification-first thinking (L4), QDD (L5), Three Roles (L3)
-- Validates: Specification completeness (L1-2 foundations)
+**Concept List** (Integration only):
+- Orchestrates: All skills from L1-L7
+- Integrates: Templates (L7) + Decision criteria + Validation (L6)
+- Delivers: Personal prompt toolkit (portfolio piece)
 
-**Teaching Modality**: Specification-driven (NO implementation code)
+**Teaching Modality**: Synthesis + design
+- Audit: What tasks do YOU do repeatedly?
+- Create: 5-7 templates covering your common tasks
+- Document: Decision guide (task → template mapping)
+- Validate: Test each template, peer review
 
-**Practice Vehicle**: Specification document ONLY
-- Write spec for "Personal Prompt Template Library Tool"
-- Include: Intent, Constraints, Success Criteria, Non-Goals, Acceptance Tests
-- Peer review: Another student uses spec to understand system
+**Practice Vehicle**: Complete toolkit creation
 
-**Specification Structure**:
+**Toolkit Structure**:
 ```markdown
-# Prompt Template Library Specification
+# My Prompt Toolkit
 
-## I. Evals (What Success Looks Like)
-- Developer can find appropriate template in <30 seconds
-- Templates produce 90%+ satisfactory AI outputs
-- Decision framework guides selection correctly
+## Template 1: [Name]
+**When to use**: [Criteria]
+**Template**: [Prompt with [PLACEHOLDERS]]
+**Example**: [Filled-in version]
 
-## II. Intent (What We're Building)
-- Library of 5-7 prompt templates
-- Selection decision tree
-- Usage documentation
-- Example applications
+## Template 2: [Name]
+...
 
-## III. Constraints
-- Templates use placeholder syntax: [VARIABLE]
-- Templates documented with 3+ usage examples each
-- Decision tree covers 95% of common dev tasks
-- Markdown-based (portable, version-controllable)
-
-## IV. Non-Goals
-- NOT a code generator (templates guide prompting, not replace it)
-- NOT template execution automation (students still prompt AI manually)
-- NOT domain-specific (general development templates)
-
-## V. Acceptance Tests
-- Peer can select correct template for 5 test scenarios
-- Peer can customize template without clarification questions
-- Templates produce working AI outputs in testing
+## Decision Guide
+- For [task type] → Use [template name]
+- For [task type] → Use [template name]
 ```
 
 **Prerequisites**:
-- ALL Lessons 1-7 (complete foundation)
-- Templates from L6, Decision framework from L7
+- ALL Lessons 1-7
+- Templates from L7
 
 **Deliverable**:
-- Complete specification (3-5 pages markdown)
-- Peer review validation report
-- NO implementation code (specification only)
+- Complete toolkit (markdown file, 5-7 templates)
+- Decision guide (when to use each)
+- Test results (validated on real scenarios)
 
-**Stage 4 Demonstration**:
-- ✅ Orchestrates accumulated intelligence (templates + criteria)
-- ✅ Specification-only (no implementation)
-- ✅ Peer-reviewable (validates specification completeness)
+**Assessment Criteria**:
+- Toolkit has 5-7 templates with placeholders
+- Each template has usage criteria
+- Decision guide maps tasks to templates
+- Peer can use toolkit without clarification
 
-**Try With AI Section**:
-```markdown
-## Try With AI: Specification Validation
-
-**Part 1: Completeness Check**
-Ask AI: "Review this specification. What's missing? What's ambiguous?"
-
-**Part 2: Peer Simulation**
-Ask AI: "Pretend you're a developer using this spec. What questions would you have?"
-
-**Part 3: Refinement**
-Based on AI feedback, improve specification clarity.
-
-**Part 4: Final Validation**
-Confirm: Could a peer implement this without asking you questions?
-```
+**Ending Section**: ONLY "Try With AI" (validate toolkit with AI feedback, test with peer)
 
 ---
 
 ## III. Intelligence Accumulation Map
 
-### Skills Created (Stage 3)
-
-**Lesson 6 Deliverables**:
-- `bug-fix-template.md` (prompt template with 2-4 decision points)
-- `refactoring-template.md` (prompt template)
-- `documentation-template.md` (prompt template)
-- Template library structure (folder organization)
+### Skills Created (Layer 3)
 
 **Lesson 7 Deliverables**:
-- `template-selection-guide.md` (decision framework)
-- Usage criteria documentation
-- Anti-pattern recognition guide
+- 3+ prompt templates (reusable patterns)
+- Template structure understanding
+- Pattern recognition skill
 
-**Capstone Orchestration (Lesson 8)**:
-- Specification orchestrates ALL templates + decision framework
-- Peer-reviewable artifact (validates professional competency)
+**Lesson 8 Deliverables**:
+- Complete prompt toolkit (5-7 templates)
+- Decision guide (template selection)
+- Validation framework
 
 ### Reusability Across Book
 
 **Templates Apply To**:
-- Part 4 (Python Fundamentals): Bug fixes, refactoring, testing
-- Part 5 (Spec-Driven Development): Specification writing
-- Part 6+ (Advanced topics): Domain-specific template adaptation
+- **Part 4 (Python)**: Debugging Python scripts, explaining syntax, refactoring code
+- **Part 5 (Spec-Driven)**: Writing specifications, creating plans
+- **Part 6+ (Advanced)**: Domain-specific adaptations
 
 **Decision Framework Applies To**:
-- All future AI collaboration (universal skill)
-- Professional development workflows
+- All future AI collaboration
+- Professional workflows
 - Team collaboration (shareable templates)
 
 ---
@@ -576,24 +464,23 @@ Confirm: Could a peer implement this without asking you questions?
 
 **Chapter 9** (Markdown):
 - Modality: Direct teaching (lecture-style syntax tutorial)
-- Approach: "Here's how markdown works" → demonstrations → practice
+- Approach: "Here's markdown syntax" → demonstrations → practice exercises
 - Student role: Passive learner following instructions
 
 **Chapter 10** (Prompt Engineering):
-- Modality: Specification-first + Socratic dialogue
-- Approach: "Here's what good prompts achieve" → questions guide discovery → active creation
-- Student role: Active creator discovering patterns
+- Modality: Experiential collaboration (hands-on practice with AI)
+- Approach: "Try this prompt" → compare results → discover what works → reflect
+- Student role: Active collaborator discovering patterns through iteration
 
-**Variation Achieved**: ✅ Different modality (not repeating Chapter 9 pattern)
+**Variation Achieved**: ✅ Different modality (experiential vs. direct teaching)
 
 ### Within-Chapter Modality Variation
 
-**Lessons 1-2**: Specification-first (show outcomes → analyze structure)
-**Lessons 3-5**: Socratic + hands-on (questions → iteration → reflection)
-**Lessons 6-7**: Design-focused (create templates → document criteria)
-**Lesson 8**: Specification-driven (write spec → peer review)
+**L1-3**: Comparison-based (vague vs. clear, analyze manually)
+**L4-6**: Experiential (hands-on with AI, reflection after iterations)
+**L7-8**: Design-focused (create templates, build toolkit)
 
-**Variety**: ✅ Four distinct approaches across 8 lessons
+**Variety**: ✅ Three distinct approaches across 8 lessons
 
 ---
 
@@ -603,24 +490,25 @@ Confirm: Could a peer implement this without asking you questions?
 
 | Lesson | Tier | Concepts | Load Assessment |
 |--------|------|----------|-----------------|
-| L1 | A2 | 5 | ✅ Within A2 limit (5-7) |
-| L2 | A2 | 6 | ✅ Within A2 limit (5-7) |
-| L3 | A2→B1 | 7 | ✅ Within B1 limit (7-10) |
-| L4 | B1 | 7 | ✅ Within B1 limit (7-10) |
-| L5 | B1 | 7 | ✅ Within B1 limit (7-10) |
-| L6 | B1 | 8 | ✅ Within B1 limit (7-10) |
+| L1 | A2 | 3 | ✅ Within A2 limit (5-7) |
+| L2 | A2 | 4 | ✅ Within A2 limit (5-7) |
+| L3 | A2 | 5 | ✅ Within A2 limit (5-7) |
+| L4 | A2→B1 | 5 | ✅ Within B1 limit (7-10) |
+| L5 | B1 | 6 | ✅ Within B1 limit (7-10) |
+| L6 | B1 | 6 | ✅ Within B1 limit (7-10) |
 | L7 | B1 | 7 | ✅ Within B1 limit (7-10) |
-| L8 | B1 | 0 new (synthesis) | ✅ No overload (composition only) |
+| L8 | B1 | 0 new (integration) | ✅ No overload (synthesis only) |
 
-**Progressive Load Increase**: ✅ 5 → 6 → 7 → 8 (gradual)
-**Tier Alignment**: ✅ A2 (5-7), B1 (7-10)
+**Total Concepts**: 36 new + 6 integration = 42 total
+**Progressive Load**: ✅ 3 → 4 → 5 → 5 → 6 → 6 → 7 (gradual increase)
+**Tier Alignment**: ✅ A2 (3-5), B1 (5-7)
 
 ### Concept Chunking Effectiveness
 
-**Related concepts grouped**:
-- L1-2: Prompt foundations (chunk together naturally)
-- L3-5: AI collaboration patterns (build on each other)
-- L6-7: Template creation (sequential dependency)
+**Natural groupings**:
+- L1-3: Prompt foundations (structure, clarity, enhancement)
+- L4-6: AI collaboration (iteration, questions, validation)
+- L7-8: Intelligence design (templates, toolkit)
 
 **Cognitive load reduction**: ✅ Chunking reduces working memory demands
 
@@ -632,43 +520,48 @@ Confirm: Could a peer implement this without asking you questions?
 
 **Approach**: Minimal differentiation (both use natural language prompts)
 
+**Chapter 10 Focus**: Prompt CONTENT (what you say)
+- Task + Context + Format structure
+- Examples and constraints
+- Iteration patterns
+- Template design
+
+**Chapter 11 Focus**: Context management (what AI knows)
+- Context window sizes
+- Session management
+- Memory files
+- Tool selection criteria
+
 **Lesson Integration**:
-- Examples use both tools interchangeably
-- Syntax differences noted when relevant (file references: `@filename` in Gemini)
-- Focus on PROMPT CONTENT (not tool-specific features)
-
-**NOTE**: Detailed tool comparison belongs in Chapter 11 (context engineering)
-- Context window sizes: Chapter 11 topic
-- Session management: Chapter 11 topic
-- Tool selection criteria: Chapter 11 topic
-
-**Chapter 10 Scope**: Prompt text content only (universal across tools)
+- Examples use "Claude Code or Gemini CLI" interchangeably
+- Focus on prompt text (universal across tools)
+- Syntax differences noted only when relevant
 
 ---
 
 ## VII. Constitutional Compliance Checklist
 
-### 4-Stage Framework
+### 4-Layer Teaching Method
 
-- [x] **Stage 1** (L1-2): Manual foundation, ZERO AI tool usage
-- [x] **Stage 2** (L3-5): AI collaboration, THREE ROLES demonstrated in ALL lessons
-- [x] **Stage 3** (L6-7): Intelligence design, reusable templates created
-- [x] **Stage 4** (L8): Spec-driven capstone, orchestrates accumulated intelligence
+- [x] **Layer 1** (L1-3): Manual foundation, ZERO AI tool usage until "Try With AI"
+- [x] **Layer 2** (L4-6): AI collaboration, Three Roles experienced naturally (NOT labeled)
+- [x] **Layer 3** (L7-8): Intelligence design, reusable templates created
+- [x] Capstone (L8): Integration of all skills (toolkit building)
 
 ### Principle Compliance
 
-- [x] **Principle 1** (Specification Primacy): L1-2 show WHAT before HOW, L4 teaches spec-first
-- [x] **Principle 2** (Progressive Complexity): A2 (5-7) → B1 (7-10) progression
-- [x] **Principle 3** (Factual Accuracy): Jake Heller framework cited, unverified claims removed
-- [x] **Principle 6** (Anti-Convergence): Spec-first + Socratic vs Chapter 9 direct teaching
+- [x] **Principle 1** (Specification Primacy): Applied to pedagogy (show outcomes first), NOT content (collaboration, not specification writing)
+- [x] **Principle 2** (Progressive Complexity): A2 (3-5) → B1 (5-7) progression
+- [x] **Principle 3** (Factual Accuracy): Jake Heller referenced as sidebar, Anthropic/Google/OpenAI docs cited
+- [x] **Principle 6** (Anti-Convergence): Experiential collaboration vs Chapter 9 direct teaching
 - [x] **Principle 7** (Minimal Content): ZERO context engineering (all in Chapter 11)
 
 ### Student-Facing Language Protocol
 
-- [x] NO meta-commentary in lessons ("AI is teaching you patterns")
-- [x] NO scaffolding exposure ("This is Stage 2")
-- [x] NO framework labels in student text ("## Three Roles in Action")
-- [x] Students EXPERIENCE Three Roles through narrative, not labels
+- [x] NO meta-commentary in lessons ("Notice how AI teaches you patterns")
+- [x] NO scaffolding exposure ("This is Layer 2, so we use Three Roles")
+- [x] NO framework labels ("## Three Roles Framework")
+- [x] Students EXPERIENCE Three Roles through natural iteration narrative
 
 ### Lesson Ending Protocol
 
@@ -677,45 +570,68 @@ Confirm: Could a peer implement this without asking you questions?
 
 ---
 
-## VIII. Success Criteria
+## VIII. Separation from Chapter 11 (Context Engineering)
+
+### Chapter 10 Scope (WHAT you SAY)
+
+✅ Included:
+- Clear prompt writing (Task + Context + Format)
+- Iteration and refinement
+- Question-driven collaboration
+- Prompt templates for common tasks
+- Validation of AI outputs
+
+### Chapter 11 Scope (WHAT AI KNOWS)
+
+❌ Excluded from Chapter 10:
+- Context windows and token limits
+- Progressive loading strategies
+- Memory files (CLAUDE.md, architecture.md)
+- Session management
+- Context compression techniques
+
+---
+
+## IX. Success Criteria
 
 ### Plan Succeeds When
 
-- [x] Lesson count derived from concept density (8 lessons, not arbitrary)
-- [x] Pedagogical arc follows Foundation → Application → Integration → Mastery
-- [x] Teaching modality varies from Chapter 9 (specification-first + Socratic)
-- [x] Stage progression explicit (Manual → AI Collab → Intelligence → Spec-Driven)
-- [x] Cognitive load managed (A2: 5-7, B1: 7-10 concepts per lesson)
-- [x] Intelligence accumulation demonstrated (templates in L6-7, orchestrated in L8)
-- [x] Zero overlap with Chapter 11 (no context engineering content)
+- [x] 8-lesson structure derived from concept density (A2→B1 progression)
+- [x] Collaboration-focused approach (NOT specification writing)
+- [x] Layer progression: Manual → Collaboration → Intelligence
+- [x] Teaching modality varies from Chapter 9 (experiential vs. direct)
+- [x] Three Roles experienced naturally in L4-6 (NOT labeled as framework)
+- [x] Jake Heller referenced as sidebar (NOT primary framework)
+- [x] Zero context engineering content (clean separation with Chapter 11)
+- [x] Practice uses Bash/Git/Markdown ONLY (NO Python)
 
 ### Plan Fails When
 
-- [ ] Lesson count arbitrary (not justified by concept density)
-- [ ] Teaching modality same as Chapter 9 (direct teaching)
-- [ ] Stage progression not followed (skipping stages or wrong order)
-- [ ] Cognitive load violated (too many concepts per lesson)
-- [ ] Context engineering concepts appear (violates separation)
-- [ ] No intelligence accumulation (templates not reusable)
+- [ ] Teaching specification writing (wrong layer for A2-B1)
+- [ ] Using professional frameworks as primary pedagogy
+- [ ] Context engineering concepts appear (violates Chapter 11 separation)
+- [ ] Python code examples used (violates Part 3 constraints)
+- [ ] Meta-commentary exposes scaffolding (violates protocol)
+- [ ] Three Roles taught as framework instead of experienced naturally
 
 ---
 
-## IX. Next Steps: Task Breakdown
+## X. Next Steps: Task Breakdown
 
 **After plan approval, tasks.md will define**:
-1. One task per lesson (L1-L8)
-2. Deliverables per task (markdown files, exercises, templates)
-3. Validation criteria per lesson
-4. Anti-pattern checks (prevent context engineering content)
-5. Constitutional compliance validation per lesson
+1. Eight implementation tasks (one per lesson: L1-L8)
+2. Clear deliverables per task (lesson markdown files)
+3. Validation criteria per lesson (constitutional compliance, factual accuracy)
+4. Anti-pattern checks (prevent context engineering, specification writing language)
+5. Three Roles verification (L4-6 demonstrate naturally, not labeled)
 
 **Implementation approach**:
-- Implement lessons sequentially (L1 → L8)
-- Validate each lesson before proceeding to next
-- Apply anti-pattern detection continuously
-- Use content-implementer agent or direct implementation
+- Create lessons sequentially (L1 → L8)
+- Validate each lesson before proceeding
+- Apply anti-pattern detection (no context engineering, no PM language)
+- Ensure practice uses Bash/Git/Markdown ONLY
 
 ---
 
-**Plan Version**: 1.0
+**Plan Version**: 2.0 (Collaboration-Focused, aligned with spec v2.0)
 **Ready for**: User approval and task breakdown phase
