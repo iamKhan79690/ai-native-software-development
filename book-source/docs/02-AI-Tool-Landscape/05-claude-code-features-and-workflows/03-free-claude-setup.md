@@ -186,7 +186,7 @@ source ~/.bashrc
 
 ```bash
 claude --version     # Should show: Claude Code v2.x.x
-ccr --version        # Should show version number
+ccr   version        # Should show version number(without hyphen)
 echo $GOOGLE_API_KEY # Should show your key (not empty!)
 
 # If any fail, see Troubleshooting section
@@ -203,6 +203,8 @@ echo $GOOGLE_API_KEY # Should show your key (not empty!)
 ```bash
 # Terminal 1 - Start router FIRST
 ccr start
+or 
+ccr code 
 # Wait for: ✅ Service started successfully
 
 # Terminal 2 - THEN use Claude (after router is ready)
@@ -244,7 +246,7 @@ That's it. If Claude responds, your free setup is working perfectly.
 
 **Problem 2: "Connection refused"**
 ```bash
-→ Type `ccr start` in Terminal 1
+→ Type `ccr code` in Terminal 1
 → Wait for: ✅ Service started successfully
 ```
 
